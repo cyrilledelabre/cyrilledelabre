@@ -1,0 +1,13 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+ErrorDocument 404 /projects/cyrilledelabre/public/index.php?p=error
+RewriteRule ^works/([a-zA-Z]+)$ index.php?p=works.index&type=$1
+RewriteRule ^works/[a-zA-Z\-]+-([0-9]+)$ index.php?p=works.work&id=$1
+RewriteRule ^([a-zA-Z]+)/([a-zA-Z]+)$ index.php?p=$1.$2
+RewriteRule ^([a-zA-Z]+)/([a-zA-Z]+)/([a-zA-Z]+)$ index.php?p=$1.$2.$3
+RewriteRule ^([a-zA-Z]+)/([a-zA-Z\-]+)-([0-9]+)$ index.php?p=$1.$2&id=$3
+RewriteRule ^([a-zA-Z]+)/([a-zA-Z]+)/([a-zA-Z\-]+)-([0-9]+)$ index.php?p=$1.$2.$3&id=$4
+
+
